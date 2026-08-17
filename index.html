@@ -88,7 +88,7 @@
 
         /* الواجهة الرئيسية */
         .hero {
-            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.85)), 
+            background: linear-gradient(rgba(26, 37, 47, 0.88), rgba(26, 37, 47, 0.88)), 
                         url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
@@ -111,6 +111,7 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -125,19 +126,16 @@
 
         .btn-primary:hover { background-color: #1eb954; }
 
-        .btn-outline {
-            border: 2px solid var(--white);
-            color: var(--white);
+        .btn-phone {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
             padding: 0.8rem 2rem;
             border-radius: 4px;
             font-weight: 700;
             transition: var(--transition);
         }
 
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-        }
+        .btn-phone:hover { background-color: #b08d48; }
 
         /* الأقسام العامة */
         section {
@@ -220,6 +218,7 @@
             border-radius: 8px;
             transition: var(--transition);
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
         }
 
         .service-card:hover {
@@ -233,7 +232,68 @@
             margin-bottom: 0.8rem;
         }
 
-        /* نموذج الاتصال */
+        /* مميزات التعامل معنا */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* قسم النصائح والمقالات القانونية */
+        .articles-bg {
+            background-color: var(--bg-light);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .article-body {
+            padding: 1.5rem;
+        }
+
+        .article-body h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* نموذج الاتصال والخريطة */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -245,7 +305,31 @@
         }
 
         .info-item { margin-bottom: 1.5rem; }
-        .info-item strong { display: block; color: var(--secondary-color); }
+        .info-item strong { display: block; color: var(--secondary-color); margin-bottom: 5px; }
+
+        .btn-map {
+            display: inline-block;
+            margin-top: 8px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-map:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .map-frame {
+            margin-top: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
 
         .contact-form .form-group { margin-bottom: 1.2rem; }
 
@@ -281,12 +365,43 @@
 
         .btn-submit:hover { background-color: #1eb954; }
 
+        /* زر الواتساب العائم */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #1eb954;
+        }
+
         /* الفوتر */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
             padding: 2rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .developer-rights {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -299,6 +414,11 @@
 </head>
 <body>
 
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/201222267937" target="_blank" class="floating-whatsapp">
+        واتساب مباشر
+    </a>
+
     <!-- الهيدر -->
     <header>
         <nav>
@@ -307,6 +427,7 @@
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#about">من نحن</a></li>
                 <li><a href="#services">تخصصاتنا</a></li>
+                <li><a href="#articles">نصائح قانونية</a></li>
                 <li><a href="#contact" class="btn-consult">طلب استشارة</a></li>
             </ul>
         </nav>
@@ -319,7 +440,7 @@
             <p>نقدم حلولاً قانونية متكاملة والترافع أمام كافة المحاكم بدقة ومهنية عالية.</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn-primary">احجز استشارة عبر الواتساب</a>
-                <a href="#services" class="btn-outline">الخدمات القانونية</a>
+                <a href="tel:01222267937" class="btn-phone">اتصل بنا الآن</a>
             </div>
         </div>
     </section>
@@ -334,6 +455,18 @@
             <div class="about-text">
                 <h3>نلتزم بالدفاع عن الحقوق وتحقيق العدالة</h3>
                 <p>مكتب الأستاذ إسلام أبو العلا العدوي يقدم خدمات قانونية مخصصة للشركات والأفراد مع الالتزام التام بالسرية والمهنية العالية.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h4>دقة وسرعة</h4>
+                        <p>متابعة دورية ومباشرة لكافة مستجدات القضايا.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>سرية تامة</h4>
+                        <p>حماية كامل بياناتك ومعلوماتك القانونية.</p>
+                    </div>
+                </div>
+
                 <div class="stats">
                     <div class="stat-item">
                         <h4>+15</h4>
@@ -345,7 +478,7 @@
                     </div>
                     <div class="stat-item">
                         <h4>100%</h4>
-                        <p>سرية تامة</p>
+                        <p>التزام بالمهنية</p>
                     </div>
                 </div>
             </div>
@@ -363,22 +496,56 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>القضايا التجارية</h3>
+                    <h3>القضايا التجارية والشركات</h3>
                     <p>صياغة العقود التجارية، تأسيس الشركات، وحل النزاعات المالية والمصرفية.</p>
                 </div>
                 <div class="service-card">
                     <h3>القضايا المدنية والعقارية</h3>
-                    <p>معالجة النزاعات العقارية، عقود البيع والإيجار، والمطالبات المالية.</p>
+                    <p>معالجة النزاعات العقارية، عقود البيع والإيجار، والمطالبات المالية التعويضية.</p>
                 </div>
                 <div class="service-card">
                     <h3>قضايا الأحوال الشخصية</h3>
                     <p>قضايا الأسرة، التركات، وتوزيع المواريث وفق الضوابط الشرعية والقانونية.</p>
                 </div>
+                <div class="service-card">
+                    <h3>القضايا الجنائية والعمالية</h3>
+                    <p>الترافع في القضايا الجنائية ومتابعة نزاعات العمل بين العامل وصاحب العمل.</p>
+                </div>
             </div>
         </section>
     </div>
 
-    <!-- قسم طلب الاستشارة عبر الواتساب -->
+    <!-- قسم النصائح والمقالات القانونية -->
+    <div class="articles-bg" id="articles">
+        <section>
+            <div class="section-title">
+                <h2>نصائح قانونية تهمك</h2>
+                <p>إرشادات ومقالات قانونية مبسطة لحماية حقوقك</p>
+            </div>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-body">
+                        <h3>خطوات وإجراءات تأسيس الشركات</h3>
+                        <p>تأكد من اختيار الكيان القانوني المناسب لشركتك (أموال/أفراد)، وإعداد عقد التأسيس ومراجعته مع محامٍ متخصص لتفادي النزاعات المستقبلية بين الشركاء.</p>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-body">
+                        <h3>أهم 4 نصائح قبل شراء أي عقار</h3>
+                        <p>احرص على الفحص النافي للجهالة، التأكد من تسلسل الملكية في الشهر العقاري، مراجعة تراخيص البناء، وصياغة الشرط الجزائي بدقة في عقد البيع.</p>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-body">
+                        <h3>حماية حقوقك في عقود العمل</h3>
+                        <p>افحص المزيّة المحددة في عقد العمل كالأجر، ساعات العمل، وفترة الاختبار، وتأكد من توثيق كافة الاتفاقات كتابةً للحفاظ على المستحقات المالية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- قسم طلب الاستشارة والاتصال وخريطة جوجل -->
     <section id="contact">
         <div class="section-title">
             <h2>احجز استشارة قانونية</h2>
@@ -386,14 +553,33 @@
         </div>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>معلومات التواصل</h3>
+                <h3>معلومات التواصل والعنوان</h3>
                 <div class="info-item">
                     <strong>العنوان:</strong>
                     <p>الجيزة - الشيخ زايد - بوابة 5 - خلف مول مزار</p>
+                    <a href="https://maps.google.com/?q=مول+مزار+الشيخ+زايد" target="_blank" class="btn-map">
+                        فتح موقع المكتب على Google Maps
+                    </a>
                 </div>
                 <div class="info-item">
-                    <strong>الواتساب والهاتف المباشر:</strong>
+                    <strong>الهاتف المباشر والواتساب:</strong>
                     <p dir="ltr" style="text-align: right;"><a href="https://wa.me/201222267937" target="_blank" style="color: #25d366; font-weight: bold;">01222267937</a></p>
+                </div>
+                <div class="info-item">
+                    <strong>مواعيد العمل:</strong>
+                    <p>السبت - الخميس: 10:00 صباحاً - 10:00 مساءً</p>
+                </div>
+                
+                <!-- خريطة توضيحية من Google Maps -->
+                <div class="map-frame">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.682337691866!2d30.9850!3d30.0460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQ1LjYiTiAzMMKwNTknMDYuMCJF!5e0!3m2!1sar!2seg!4v1620000000000!5m2!1sar!2seg" 
+                        width="100%" 
+                        height="180" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
 
@@ -408,10 +594,10 @@
                     <div class="form-group">
                         <select id="serviceType" required>
                             <option value="" disabled selected>اختر نوع الاستشارة</option>
-                            <option value="قضايا تجارية">قضايا تجارية</option>
+                            <option value="قضايا تجارية">قضايا تجارية وشركات</option>
                             <option value="قضايا مدنية">قضايا مدنية وعقارية</option>
                             <option value="أحوال شخصية">أحوال شخصية وتركات</option>
-                            <option value="قضايا عمالية">قضايا عمالية</option>
+                            <option value="قضايا جنائية وعمالية">قضايا جنائية وعمالية</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -426,6 +612,7 @@
     <!-- الفوتر -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 - مكتب إسلام أبو العلا العدوي المحاماة والاستشارات القانونية.</p>
+        <p class="developer-rights">تم التطوير بواسطة Ali Nasr</p>
     </footer>
 
     <!-- ==================== كود الفايربيس والواتساب ==================== -->
@@ -433,7 +620,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // إعدادات قاعدة البيانات الخاصة بك
         const firebaseConfig = {
             apiKey: "AIzaSyD9DqOsGH4UDfLgGRZQH_5jJqIiytYULbw",
             authDomain: "islam-680b2.firebaseapp.com",
@@ -447,7 +633,6 @@
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
-        // رقم الواتساب المحدث الخالي من الأصفار والرموز مع كود مصر 20
         const whatsappNumber = "201222267937";
 
         const form = document.getElementById('consultationForm');
@@ -475,7 +660,7 @@
                 message: message,
                 timestamp: new Date().toISOString()
             }).then(() => {
-                // 2. توجيه العميل للواتساب بنص نقي وخالٍ من الإيموجي لمنع ظهور علامات الاستفهام
+                // 2. توجيه العميل للواتساب
                 const whatsappText = `مرحباً، أود حجز استشارة قانونية:%0A%0A` +
                     `الاسم: ${encodeURIComponent(fullName)}%0A` +
                     `رقم الهاتف: ${encodeURIComponent(phone)}%0A` +
@@ -484,9 +669,7 @@
 
                 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
-                // فتح الواتساب في نافذة جديدة
                 window.open(whatsappUrl, '_blank');
-                
                 form.reset();
             }).catch((error) => {
                 console.error("خطأ:", error);
