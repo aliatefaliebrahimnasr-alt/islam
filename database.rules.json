@@ -1,0 +1,18 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "siteContent": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "consultations": {
+      ".indexOn": ["createdAt"],
+      "$requestId": {
+        ".read": "auth != null",
+        ".write": "auth != null || (!data.exists() && newData.exists() && newData.child('status').val() === 'new')",
+        ".validate": "!newData.exists() || (newData.hasChildren(['name','phone','service','message','consent','status','source','createdAt']) && newData.child('name').isString() && newData.child('name').val().length >= 3 && newData.child('name').val().length <= 80 && newData.child('phone').isString() && newData.child('phone').val().matches(/^01[0125][0-9]{8}$/) && newData.child('service').isString() && newData.child('service').val().length >= 2 && newData.child('service').val().length <= 80 && newData.child('message').isString() && newData.child('message').val().length >= 10 && newData.child('message').val().length <= 1500 && newData.child('consent').val() === true && (newData.child('status').val() === 'new' || newData.child('status').val() === 'contacted' || newData.child('status').val() === 'closed') && newData.child('source').val() === 'website' && newData.child('createdAt').isNumber())"
+      }
+    }
+  }
+}
