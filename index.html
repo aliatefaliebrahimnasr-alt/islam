@@ -1,684 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إسلام أبو العلا العدوي | المحاماة والاستشارات القانونية</title>
-    <!-- خط تجوال من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #1a252f;
-            --secondary-color: #c5a059;
-            --bg-light: #f8f9fa;
-            --text-dark: #2c3e50;
-            --text-muted: #6c757d;
-            --white: #ffffff;
-            --whatsapp-color: #25d366;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        /* الهيدر وقائمة التصفح */
-        header {
-            background-color: var(--primary-color);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            font-weight: 800;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover { color: var(--secondary-color); }
-
-        .btn-consult {
-            background-color: var(--secondary-color);
-            color: var(--primary-color) !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            font-weight: 700 !important;
-            transition: var(--transition);
-        }
-
-        .btn-consult:hover { background-color: #b08d48; }
-
-        /* الواجهة الرئيسية */
-        .hero {
-            background: linear-gradient(rgba(26, 37, 47, 0.88), rgba(26, 37, 47, 0.88)), 
-                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 1rem;
-            margin-top: 60px;
-        }
-
-        .hero-content { max-width: 800px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero h1 span { color: var(--secondary-color); }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; color: #dcdcdc; }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background-color: var(--whatsapp-color);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .btn-primary:hover { background-color: #1eb954; }
-
-        .btn-phone {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-
-        .btn-phone:hover { background-color: #b08d48; }
-
-        /* الأقسام العامة */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-
-        /* من نحن */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .stat-item h4 {
-            font-size: 2rem;
-            color: var(--secondary-color);
-        }
-
-        /* الخدمات */
-        .services-bg {
-            background-color: var(--white);
-            max-width: 100%;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background-color: var(--bg-light);
-            padding: 2.5rem 1.5rem;
-            border-radius: 8px;
-            transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            background-color: var(--white);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-        }
-
-        /* مميزات التعامل معنا */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-box {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .feature-box h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* قسم النصائح والمقالات القانونية */
-        .articles-bg {
-            background-color: var(--bg-light);
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .article-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .article-body {
-            padding: 1.5rem;
-        }
-
-        .article-body h3 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .article-body p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* نموذج الاتصال والخريطة */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .info-item { margin-bottom: 1.5rem; }
-        .info-item strong { display: block; color: var(--secondary-color); margin-bottom: 5px; }
-
-        .btn-map {
-            display: inline-block;
-            margin-top: 8px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-
-        .btn-map:hover {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        .map-frame {
-            margin-top: 15px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-        }
-
-        .contact-form .form-group { margin-bottom: 1.2rem; }
-
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            outline: none;
-            font-size: 0.95rem;
-        }
-
-        .contact-form input:focus,
-        .contact-form select:focus,
-        .contact-form textarea:focus {
-            border-color: var(--secondary-color);
-        }
-
-        .btn-submit {
-            background-color: var(--whatsapp-color);
-            color: var(--white);
-            border: none;
-            padding: 0.9rem 2rem;
-            width: 100%;
-            border-radius: 4px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-
-        .btn-submit:hover { background-color: #1eb954; }
-
-        /* زر الواتساب العائم */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: var(--whatsapp-color);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #1eb954;
-        }
-
-        /* الفوتر */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .developer-rights {
-            margin-top: 0.8rem;
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 1.8rem; }
-            .about-grid, .contact-container { grid-template-columns: 1fr; }
-            .hero-btns { flex-direction: column; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" id="metaDescription" content="مكتب قانوني متخصص في المحاماة والاستشارات القانونية للأفراد والشركات في مصر." />
+  <meta name="theme-color" content="#0b1726" />
+  <title>إسلام أبو العلا العدوي للمحاماة والاستشارات القانونية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.page-loader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+  <div class="page-loader" id="pageLoader" aria-hidden="true"><span></span></div>
 
-    <!-- زر واتساب عائم -->
-    <a href="https://wa.me/201222267937" target="_blank" class="floating-whatsapp">
-        واتساب مباشر
-    </a>
-
-    <!-- الهيدر -->
-    <header>
-        <nav>
-            <div class="logo">إسلام أبو العلا العدوي للمحاماة والاستشارات القانونية</div>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#services">تخصصاتنا</a></li>
-                <li><a href="#articles">نصائح قانونية</a></li>
-                <li><a href="#contact" class="btn-consult">طلب استشارة</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- الواجهة الرئيسية -->
-    <section id="home" class="hero" style="max-width: 100%; padding: 0;">
-        <div class="hero-content">
-            <h1>إسلام أبو العلا العدوي <span>للمحاماة والاستشارات القانونية</span></h1>
-            <p>نقدم حلولاً قانونية متكاملة والترافع أمام كافة المحاكم بدقة ومهنية عالية.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn-primary">احجز استشارة عبر الواتساب</a>
-                <a href="tel:01222267937" class="btn-phone">اتصل بنا الآن</a>
-            </div>
+  <header class="site-header" id="top">
+    <div class="topbar" id="topbarSection">
+      <div class="container topbar-inner">
+        <div class="topbar-links">
+          <a id="topPhone" href="tel:+201000000000">اتصل بنا: 0100 000 0000</a><span>•</span>
+          <a id="topEmail" href="mailto:info@example.com">info@example.com</a>
         </div>
-    </section>
-
-    <!-- قسم من نحن -->
-    <section id="about">
-        <div class="section-title">
-            <h2>عن المكتب</h2>
-            <p>خبرة طويلة في تقديم أفضل الخدمات والحلول القانونية</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <h3>نلتزم بالدفاع عن الحقوق وتحقيق العدالة</h3>
-                <p>مكتب الأستاذ إسلام أبو العلا العدوي يقدم خدمات قانونية مخصصة للشركات والأفراد مع الالتزام التام بالسرية والمهنية العالية.</p>
-                
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <h4>دقة وسرعة</h4>
-                        <p>متابعة دورية ومباشرة لكافة مستجدات القضايا.</p>
-                    </div>
-                    <div class="feature-box">
-                        <h4>سرية تامة</h4>
-                        <p>حماية كامل بياناتك ومعلوماتك القانونية.</p>
-                    </div>
-                </div>
-
-                <div class="stats">
-                    <div class="stat-item">
-                        <h4>+15</h4>
-                        <p>سنوات خبرة</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>+500</h4>
-                        <p>قضية ناجحة</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>100%</h4>
-                        <p>التزام بالمهنية</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80" alt="مكتب المحامي" style="width: 100%; border-radius: 8px;">
-            </div>
-        </div>
-    </section>
-
-    <!-- الخدمات -->
-    <div class="services-bg" id="services">
-        <section>
-            <div class="section-title">
-                <h2>تخصصاتنا القانونية</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>القضايا التجارية والشركات</h3>
-                    <p>صياغة العقود التجارية، تأسيس الشركات، وحل النزاعات المالية والمصرفية.</p>
-                </div>
-                <div class="service-card">
-                    <h3>القضايا المدنية والعقارية</h3>
-                    <p>معالجة النزاعات العقارية، عقود البيع والإيجار، والمطالبات المالية التعويضية.</p>
-                </div>
-                <div class="service-card">
-                    <h3>قضايا الأحوال الشخصية</h3>
-                    <p>قضايا الأسرة، التركات، وتوزيع المواريث وفق الضوابط الشرعية والقانونية.</p>
-                </div>
-                <div class="service-card">
-                    <h3>القضايا الجنائية والعمالية</h3>
-                    <p>الترافع في القضايا الجنائية ومتابعة نزاعات العمل بين العامل وصاحب العمل.</p>
-                </div>
-            </div>
-        </section>
+        <div class="topbar-note" id="topbarNote">استشارات قانونية للأفراد والشركات في جميع أنحاء مصر</div>
+      </div>
     </div>
 
-    <!-- قسم النصائح والمقالات القانونية -->
-    <div class="articles-bg" id="articles">
-        <section>
-            <div class="section-title">
-                <h2>نصائح قانونية تهمك</h2>
-                <p>إرشادات ومقالات قانونية مبسطة لحماية حقوقك</p>
-            </div>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <div class="article-body">
-                        <h3>خطوات وإجراءات تأسيس الشركات</h3>
-                        <p>تأكد من اختيار الكيان القانوني المناسب لشركتك (أموال/أفراد)، وإعداد عقد التأسيس ومراجعته مع محامٍ متخصص لتفادي النزاعات المستقبلية بين الشركاء.</p>
-                    </div>
-                </div>
-                <div class="article-card">
-                    <div class="article-body">
-                        <h3>أهم 4 نصائح قبل شراء أي عقار</h3>
-                        <p>احرص على الفحص النافي للجهالة، التأكد من تسلسل الملكية في الشهر العقاري، مراجعة تراخيص البناء، وصياغة الشرط الجزائي بدقة في عقد البيع.</p>
-                    </div>
-                </div>
-                <div class="article-card">
-                    <div class="article-body">
-                        <h3>حماية حقوقك في عقود العمل</h3>
-                        <p>افحص المزيّة المحددة في عقد العمل كالأجر، ساعات العمل، وفترة الاختبار، وتأكد من توثيق كافة الاتفاقات كتابةً للحفاظ على المستحقات المالية.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <nav class="navbar container" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#top" aria-label="العودة إلى الرئيسية">
+        <span class="brand-mark" data-logo-mark aria-hidden="true">⚖</span>
+        <span class="brand-copy"><strong data-site-name>إسلام أبو العلا العدوي</strong><small data-site-tagline>للمحاماة والاستشارات القانونية</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-controls="mainMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="mainMenu">
+        <a href="#home" class="active">الرئيسية</a><a href="#about">من نحن</a><a href="#services">الخدمات</a><a href="#articles">المقالات</a><a href="#why-us">لماذا نحن؟</a><a href="#contact">تواصل معنا</a><a class="nav-cta" href="#consultation">احجز استشارة</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- قسم طلب الاستشارة والاتصال وخريطة جوجل -->
-    <section id="contact">
-        <div class="section-title">
-            <h2>احجز استشارة قانونية</h2>
-            <p>سيتم إرسال البيانات وتوجيهك مباشرة إلى الواتساب</p>
+  <main>
+    <section class="hero" id="home" data-section="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span><b id="heroEyebrow">خبرة قانونية موثوقة في مصر</b></div>
+          <h1><span id="heroTitle">حماية حقوقك تبدأ</span><br><em id="heroAccent">باستشارة قانونية صحيحة</em></h1>
+          <p id="heroBody">نمثل الأفراد والشركات في القضايا المدنية والجنائية والتجارية والأسرية، ونقدم حلولًا قانونية مدروسة تجمع بين الدقة، السرية، وسرعة المتابعة.</p>
+          <div class="hero-actions"><a class="btn btn-primary" id="heroPrimary" href="#consultation">احجز استشارة الآن <span>←</span></a><a class="btn btn-ghost" id="heroWhatsapp" href="#" target="_blank" rel="noopener">تواصل عبر واتساب</a></div>
+          <div class="trust-row" id="heroStats"></div>
         </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>معلومات التواصل والعنوان</h3>
-                <div class="info-item">
-                    <strong>العنوان:</strong>
-                    <p>الجيزة - الشيخ زايد - بوابة 5 - خلف مول مزار</p>
-                    <a href="https://maps.google.com/?q=مول+مزار+الشيخ+زايد" target="_blank" class="btn-map">
-                        فتح موقع المكتب على Google Maps
-                    </a>
-                </div>
-                <div class="info-item">
-                    <strong>الهاتف المباشر والواتساب:</strong>
-                    <p dir="ltr" style="text-align: right;"><a href="https://wa.me/201222267937" target="_blank" style="color: #25d366; font-weight: bold;">01222267937</a></p>
-                </div>
-                <div class="info-item">
-                    <strong>مواعيد العمل:</strong>
-                    <p>السبت - الخميس: 10:00 صباحاً - 10:00 مساءً</p>
-                </div>
-                
-                <!-- خريطة توضيحية من Google Maps -->
-                <div class="map-frame">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.682337691866!2d30.9850!3d30.0460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQ1LjYiTiAzMMKwNTknMDYuMCJF!5e0!3m2!1sar!2seg!4v1620000000000!5m2!1sar!2seg" 
-                        width="100%" 
-                        height="180" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <form id="consultationForm">
-                    <div class="form-group">
-                        <input type="text" id="fullName" placeholder="الاسم الكامل" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" placeholder="رقم الهاتف" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="serviceType" required>
-                            <option value="" disabled selected>اختر نوع الاستشارة</option>
-                            <option value="قضايا تجارية">قضايا تجارية وشركات</option>
-                            <option value="قضايا مدنية">قضايا مدنية وعقارية</option>
-                            <option value="أحوال شخصية">أحوال شخصية وتركات</option>
-                            <option value="قضايا جنائية وعمالية">قضايا جنائية وعمالية</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="4" placeholder="تفاصيل الاستشارة..." required></textarea>
-                    </div>
-                    <button type="submit" id="submitBtn" class="btn-submit">إرسال عبر الواتساب</button>
-                </form>
-            </div>
+        <div class="hero-visual reveal delay-1" aria-label="رمز العدالة">
+          <div class="legal-card card-back"></div><div class="legal-card card-main"><div class="card-seal" id="heroCardSeal">العدوي</div><div class="justice-symbol" aria-hidden="true">⚖</div><p id="heroCardTitle">استشارات • دعاوى • عقود • شركات</p><span id="heroCardSubtitle">مهنية قانونية تضع مصلحتك أولًا</span></div>
+          <div class="mini-badge badge-one"><b id="badge1Value">24/7</b><span id="badge1Label">استقبال الطلبات</span></div><div class="mini-badge badge-two"><b id="badge2Value">100%</b><span id="badge2Label">سرية المعلومات</span></div>
         </div>
+      </div>
     </section>
 
-    <!-- الفوتر -->
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 - مكتب إسلام أبو العلا العدوي المحاماة والاستشارات القانونية.</p>
-        <p class="developer-rights">تم التطوير بواسطة Ali Nasr</p>
-    </footer>
+    <section class="section about" id="about" data-section="about"><div class="container about-grid"><div class="about-visual reveal"><div class="portrait-placeholder" id="aboutPortrait"><div class="portrait-icon">⚖</div><div class="portrait-lines"></div><span>صورة المحامي</span></div><div class="experience-stamp"><strong id="aboutExperience">18+</strong><span>عامًا من<br>الخبرة</span></div></div><div class="section-copy reveal delay-1"><div class="section-label" id="aboutLabel">من نحن</div><h2 id="aboutTitle"></h2><p class="lead" id="aboutLead"></p><p id="aboutBody"></p><div class="signature-block"><div class="signature-line"></div><div><strong id="aboutName"></strong><span id="aboutRole"></span></div></div><a class="text-link" href="#services">تعرف على خدمات المكتب <span>←</span></a></div></div></section>
 
-    <!-- ==================== كود الفايربيس والواتساب ==================== -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    <section class="section services" id="services" data-section="services"><div class="container"><div class="section-heading reveal"><div><div class="section-label" id="servicesLabel"></div><h2 id="servicesTitle"></h2></div><p id="servicesBody"></p></div><div class="services-grid" id="servicesGrid"></div></div></section>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyD9DqOsGH4UDfLgGRZQH_5jJqIiytYULbw",
-            authDomain: "islam-680b2.firebaseapp.com",
-            databaseURL: "https://islam-680b2-default-rtdb.firebaseio.com",
-            projectId: "islam-680b2",
-            storageBucket: "islam-680b2.firebasestorage.app",
-            messagingSenderId: "734377925224",
-            appId: "1:734377925224:android:f8cc1d05080e01328b39dd"
-        };
+    <section class="section why-us" id="why-us" data-section="why"><div class="container why-grid"><div class="why-copy reveal"><div class="section-label light" id="whyLabel"></div><h2 id="whyTitle"></h2><p id="whyBody"></p><a href="#contact" class="btn btn-light" id="whyCta">تحدث مع المكتب <span>←</span></a></div><div class="advantages-grid reveal delay-1" id="advantagesGrid"></div></div></section>
 
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
+    <section class="section articles" id="articles" data-section="articles"><div class="container"><div class="section-heading reveal"><div><div class="section-label" id="articlesLabel"></div><h2 id="articlesTitle"></h2></div><p id="articlesBody"></p></div><div class="articles-grid" id="articlesGrid"></div></div></section>
 
-        const whatsappNumber = "201222267937";
+    <section class="section consultation" id="consultation" data-section="consultation"><div class="container consultation-grid"><div class="consultation-copy reveal"><div class="section-label light" id="consultationLabel"></div><h2 id="consultationTitle"></h2><p id="consultationBody"></p><div class="privacy-note"><span>✓</span><b id="consultationPrivacy"></b></div></div><form class="consultation-form reveal delay-1" id="consultationForm" novalidate><div class="form-row"><label>الاسم الكامل<input type="text" id="name" name="name" placeholder="اكتب اسمك" required minlength="3" maxlength="80"></label><label>رقم الهاتف<input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" required pattern="^01[0125][0-9]{8}$"></label></div><label>نوع الاستشارة<select id="service" name="service" required><option value="">اختر الخدمة</option></select></label><label>تفاصيل مختصرة<textarea id="message" name="message" rows="5" placeholder="اكتب نبذة عن الموضوع دون مشاركة بيانات شديدة الحساسية..." required minlength="10" maxlength="1500"></textarea></label><label class="consent"><input type="checkbox" id="consent" required><span>أوافق على استخدام البيانات للتواصل بخصوص طلب الاستشارة.</span></label><button type="submit" class="btn btn-primary submit-btn" id="submitBtn"><span class="button-text" id="submitText">إرسال طلب الاستشارة</span><span class="button-loader" aria-hidden="true"></span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></form></div></section>
 
-        const form = document.getElementById('consultationForm');
-        const submitBtn = document.getElementById('submitBtn');
+    <section class="section contact" id="contact" data-section="contact"><div class="container"><div class="contact-card reveal"><div class="contact-intro"><div class="section-label" id="contactLabel"></div><h2 id="contactTitle"></h2></div><div class="contact-items"><a id="contactPhone" href="#"><span>☎</span><div><small>الهاتف</small><strong id="contactPhoneText"></strong></div></a><a id="contactEmail" href="#"><span>✉</span><div><small>البريد الإلكتروني</small><strong id="contactEmailText"></strong></div></a><div><span>⌖</span><div><small>العنوان</small><strong id="contactAddress"></strong></div></div></div></div></div></section>
+  </main>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+  <footer class="footer" data-section="footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark" data-logo-mark>⚖</span><span class="brand-copy"><strong data-site-name>إسلام أبو العلا العدوي</strong><small data-site-tagline>للمحاماة والاستشارات القانونية</small></span></a><p id="footerSummary"></p></div><div><h4>روابط سريعة</h4><a href="#about">من نحن</a><a href="#services">الخدمات</a><a href="#articles">المقالات</a><a href="#contact">تواصل معنا</a></div><div><h4>خدماتنا</h4><div id="footerServices"></div></div><div><h4>مواعيد العمل</h4><p><span id="workDays"></span><br><span id="workHours"></span></p><a class="admin-link" href="admin.html">دخول الإدارة</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> <span data-site-name>إسلام أبو العلا العدوي</span>. <span id="footerRights"></span></span><span id="footerDesigner"></span></div></footer>
 
-            submitBtn.disabled = true;
-            submitBtn.innerText = "جاري التوجيه للواتساب...";
+  <a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noopener" aria-label="واتساب">واتساب</a><button class="back-top" id="backTop" aria-label="العودة لأعلى">↑</button>
 
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const serviceType = document.getElementById('serviceType').value;
-            const message = document.getElementById('message').value;
-
-            // 1. حفظ البيانات في Firebase Realtime Database
-            const consultationsRef = ref(database, 'consultations');
-            const newConsultationRef = push(consultationsRef);
-
-            set(newConsultationRef, {
-                fullName: fullName,
-                phone: phone,
-                serviceType: serviceType,
-                message: message,
-                timestamp: new Date().toISOString()
-            }).then(() => {
-                // 2. توجيه العميل للواتساب
-                const whatsappText = `مرحباً، أود حجز استشارة قانونية:%0A%0A` +
-                    `الاسم: ${encodeURIComponent(fullName)}%0A` +
-                    `رقم الهاتف: ${encodeURIComponent(phone)}%0A` +
-                    `نوع الاستشارة: ${encodeURIComponent(serviceType)}%0A` +
-                    `تفاصيل الاستشارة:%0A${encodeURIComponent(message)}`;
-
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
-
-                window.open(whatsappUrl, '_blank');
-                form.reset();
-            }).catch((error) => {
-                console.error("خطأ:", error);
-                alert("حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.");
-            }).finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "إرسال عبر الواتساب";
-            });
-        });
-    </script>
+  <script src="site-defaults.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
